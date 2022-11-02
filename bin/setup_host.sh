@@ -1,4 +1,4 @@
-container_name=zhuangbu-prod-1
+container_name=zhangbu-prod-1
 
 version=$(cat zhangbu_deploy/version)
 
