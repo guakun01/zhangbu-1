@@ -5,8 +5,8 @@ db_container_name=db-for-zhangbu
 
 function set_env {
   name=$1
-  while [ -z "${name}" ]; do
-    ehco "> 请输入 $name:"
+  while [ -z "${!name}" ]; do
+    echo "> 请输入 $name:"
     read $name
     sed -i "1s/^/export $name=${!name}\n/" ~/.bashrc
     echo "${name} 已保存至 ~/.bashrc"
