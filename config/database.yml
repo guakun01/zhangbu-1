@@ -61,6 +61,6 @@ test:
 production:
   <<: *default
   database: zhangbu_production
-  username: zhangbu
+  username: zhangbu-1
   password: <%= ENV["DB_PASSWORD"] %>
   host: <%= ENV["DB_HOST"] %>

@@ -7,6 +7,7 @@ current_dir=$(dirname $0)
 deploy_dir=/home/$user/deploys/$time
 gemfile=$current_dir/../Gemfile
 gemfile_lock=$current_dir/../Gemfile.lock
+vendor_cache_dir=$current_dir/../vendor_cache
 
 function title {
   echo
@@ -22,11 +23,12 @@ title '打包源代码为压缩文件'
 bundle cache
 tar --exclude="tmp/cache/*" -czv -f $dist *
 title '创建远程目录'
-ssh $user@$ip "mkdir -p $deploy_dir"
+ssh $user@$ip "mkdir -p $deploy_dir/vendor/cache"
 title '上传压缩文件'
 scp $dist $user@$ip:$deploy_dir/
 scp $gemfile $user@$ip:$deploy_dir/
 scp $gemfile_lock $user@$ip:$deploy_dir/
+scp -r $vendor_cache_dir $user@$ip:$deploy_dir/vendor/cache
 title '上传 Dockerfile'
 scp $current_dir/../config/host.Dockerfile $user@$ip:$deploy_dir/Dockerfile
 title '上传 setup 脚本'
