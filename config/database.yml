@@ -23,20 +23,20 @@ default: &default
 
 development:
   <<: *default
-  database: zhangbu_1_dev
-  username: zhangbu
-  password: pw1forzhangbu
-  host: db-for-zhangbu
+  database: zhangbu1dev
+  username: devuser
+  password: pwforzhangbu1dev
+  host: zhangbu1dev
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: zhangbu_1_test
-  username: zhangbu
-  password: pw1forzhangbu
-  host: db-for-zhangbu
+  database: zhangbu1test
+  username: devuser
+  password: pwforzhangbu1dev
+  host: zhangbu1dev
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
