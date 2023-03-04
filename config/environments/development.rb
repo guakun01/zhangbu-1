@@ -40,12 +40,15 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    user_name: "noreply@guakun.top",
-    password: Rails.application.credentials.email_pw,
+    user_name: "noreply01@guakun.top",
+    password: Rails.application.credentials.email_password,
     domain: "mail.guakun.top",
     port: 587,
-    address: "mail.guakun.top",
+    address: "smtp.exmail.qq.com",
     :authentication => 'plain',
+    enable_starttls_auto: true,
+    open_timeout: 30,
+    read_timeout: 30,
   }
 
   # Print deprecation notices to the Rails logger.
